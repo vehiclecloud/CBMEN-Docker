@@ -1,0 +1,3 @@
+FROM internetofvehicles/encoders
+
+ADD https://raw.githubusercontent.com/internetofvehicles/ENCODERS/evaluation/haggle/resources/config-flood-direct.xml /home/ubuntu/.Haggle/config.xml

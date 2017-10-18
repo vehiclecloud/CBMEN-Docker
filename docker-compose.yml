@@ -1,0 +1,39 @@
+version: "3"
+services:
+    haggle1:
+        #build: .
+        #image: internetofvehicles/encoders
+        build: 
+          context: .
+          dockerfile: Dockerfile-config
+        #command: tail -f /dev/null
+        command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
+        tty: true
+        stdin_open: true
+        expose:
+          - "8790-8799"
+          - "8780-8789"
+          - "9690-9699"
+        networks:
+          main:
+            aliases:
+              - haggle1
+    haggle2:
+        #build: .
+        #image: internetofvehicles/encoders
+        build:
+          context: .
+          dockerfile: Dockerfile-config
+        #command: tail -f /dev/null
+        command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
+        expose:
+          - "8790-8799"
+          - "8780-8789"
+          - "9690-9699"
+        networks:
+          main:
+            aliases:
+              - haggle2
+
+networks:
+    main:
