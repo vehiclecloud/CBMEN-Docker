@@ -1,5 +1,9 @@
 FROM internetofvehicles/encoders
 
-ADD https://raw.githubusercontent.com/internetofvehicles/ENCODERS/evaluation/haggle/resources/config-flood-direct.xml /home/ubuntu/.Haggle/config.xml
-RUN ls -l && sudo chown -R ubuntu:ubuntu /home/ubuntu
+#ADD https://raw.githubusercontent.com/internetofvehicles/ENCODERS/evaluation/haggle/resources/config-flood-direct.xml /home/ubuntu/.Haggle/config.xml
+#ADD https://raw.githubusercontent.com/internetofvehicles/ENCODERS/evaluation/haggle/resources/config-coding.xml /home/ubuntu/.Haggle/config.xml
+ADD config-coding.xml /home/ubuntu/.Haggle/config.xml
 
+RUN ls -l && sudo chown -R ubuntu:ubuntu /home/ubuntu
+#RUN sudo apt-get install -y netcat
+#ADD haggle.sh /haggle.sh

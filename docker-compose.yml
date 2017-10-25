@@ -1,13 +1,15 @@
 version: "3"
 services:
     haggle1:
+        privileged: true
         #build: .
         #image: internetofvehicles/encoders
         build: 
           context: .
           dockerfile: Dockerfile-config
         #command: tail -f /dev/null
-        command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
+        #command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
+        command: /haggle.sh
         tty: true
         stdin_open: true
         expose:
@@ -22,13 +24,15 @@ services:
             aliases:
               - haggle1
     haggle2:
+        privileged: true
         #build: .
         #image: internetofvehicles/encoders
         build:
           context: .
           dockerfile: Dockerfile-config
         #command: tail -f /dev/null
-        command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
+        #command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
+        command: /haggle.sh
         expose:
           - "8790-8799"
           - "8780-8789"

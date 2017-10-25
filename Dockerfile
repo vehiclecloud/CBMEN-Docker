@@ -13,3 +13,6 @@ RUN sudo chown -R ubuntu:ubuntu /home/ubuntu
 RUN sudo apt-get install -y vim
 RUN sudo apt-get install -y iputils-ping net-tools telnet
 ADD config-udptcp.xml /home/ubuntu/.Haggle/config.xml
+RUN sudo chown -R ubuntu:ubuntu /home/ubuntu
+
+ADD haggle.sh /haggle.sh
