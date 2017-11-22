@@ -1,5 +1,8 @@
 FROM ubuntu:xenial
 
+ENV CC /usr/bin/gcc-4.9
+ENV CXX /usr/bin/g++-4.9
+
 RUN apt-get update
 RUN apt-get install -y sudo
 RUN sudo apt-get update
