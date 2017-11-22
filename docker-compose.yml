@@ -9,7 +9,7 @@ services:
           dockerfile: Dockerfile-config
         #command: tail -f /dev/null
         #command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
-        command: /haggle.sh
+        command: /starthaggle.sh
         tty: true
         stdin_open: true
         expose:
@@ -32,7 +32,7 @@ services:
           dockerfile: Dockerfile-config
         #command: tail -f /dev/null
         #command: su - ubuntu -c "/usr/local/bin/haggle  -I -dd -d -f -m"
-        command: /haggle.sh
+        command: /starthaggle.sh
         expose:
           - "8790-8799"
           - "8780-8789"

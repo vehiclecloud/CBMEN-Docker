@@ -1,9 +1,10 @@
 FROM internetofvehicles/encoders
 
+#this is used to override the haggle config file preloaded into the container
+
 #ADD https://raw.githubusercontent.com/internetofvehicles/ENCODERS/evaluation/haggle/resources/config-flood-direct.xml /home/ubuntu/.Haggle/config.xml
 #ADD https://raw.githubusercontent.com/internetofvehicles/ENCODERS/evaluation/haggle/resources/config-coding.xml /home/ubuntu/.Haggle/config.xml
 ADD config-coding.xml /home/ubuntu/.Haggle/config.xml
 
+#make sure owner is set (not root)
 RUN ls -l && sudo chown -R ubuntu:ubuntu /home/ubuntu
-#RUN sudo apt-get install -y netcat
-ADD haggle.sh /haggle.sh
