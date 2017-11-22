@@ -8,7 +8,9 @@ RUN apt-get install -y sudo
 RUN sudo apt-get update
 RUN sudo apt-get install -y git
 RUN git clone https://github.com/internetofvehicles/ENCODERS
-RUN /bin/bash -c "pushd /ENCODERS && ./build_haggle.sh"
+ARG CACHEBUST=1
+RUN cd ENCODERS && git pull
+RUN cd ENCODERS && ./build_haggle.sh
 
 #make directories and set permissions in container
 RUN sudo useradd -d /home/ubuntu ubuntu
